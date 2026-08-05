@@ -45,7 +45,7 @@ manifest.  It has no provisional `1000`-series identities and is checked
 against the receipt manifest for exact name, identity, order, and uniqueness.
 The retained fingerprints for `Integer`, `String`, and `Vector` are the
 published v14 assembly evidence in `language-engine-witness` revision
-`efe8ed3d5ea53f280b93cc1f2f131d92ef781832`; `Domain` remains bound to the
+`79345db137183e7ed795a5bfbd7b730c3c5d0816`; `Domain` remains bound to the
 exact `signal-domain` revision recorded in the configuration.  A type without
 a storage leaf carries a Rust path only, never an invented fingerprint.
 
