@@ -79,15 +79,15 @@
     },
     {
       "spelling": "Input",
-      "path": ["interface_protos", "Input"]
+      "path": ["protos", "Input"]
     },
     {
       "spelling": "Output",
-      "path": ["interface_protos", "Output"]
+      "path": ["protos", "Output"]
     },
     {
       "spelling": "Refusal",
-      "path": ["interface_protos", "Refusal"]
+      "path": ["protos", "Refusal"]
     },
     {
       "spelling": "Domain",
