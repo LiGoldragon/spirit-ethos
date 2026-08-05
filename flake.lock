@@ -628,7 +628,8 @@
         "flake-utils": "flake-utils_7",
         "language-engine-witness": "language-engine-witness",
         "nixpkgs": "nixpkgs_5",
-        "rust-logos": "rust-logos"
+        "rust-logos": "rust-logos",
+        "signal-spirit-source": "signal-spirit-source"
       }
     },
     "rust-analyzer-src": {
@@ -898,6 +899,23 @@
         "owner": "LiGoldragon",
         "repo": "signal-domain",
         "rev": "c24059de43614e6fb2128e47f959dc11748bd7e7",
+        "type": "github"
+      }
+    },
+    "signal-spirit-source": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1785842977,
+        "narHash": "sha256-5kN9KgZr0V0UUIZ7aeAZ9FHdZgKMKK9mxN6PTEsRmyE=",
+        "owner": "LiGoldragon",
+        "repo": "signal-spirit",
+        "rev": "b8107601cd47ded10ea897828f8e5650d3949209",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LiGoldragon",
+        "repo": "signal-spirit",
+        "rev": "b8107601cd47ded10ea897828f8e5650d3949209",
         "type": "github"
       }
     },

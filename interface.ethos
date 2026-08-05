@@ -38,7 +38,7 @@ Interface.1
     StateDigest.Integer
     VersionText.String
     Importance.Magnitude
-    Magnitude.[Minimum VeryLow Low Medium High VeryHigh Maximum]
+    Magnitude.[Zero Minimum VeryLow Low Medium High VeryHigh Maximum]
     Kind.[Decision Principle Correction Clarification Constraint]
     DomainMatch.[Any Partial.DomainScopes Full.DomainScopes]
     Keyword.String

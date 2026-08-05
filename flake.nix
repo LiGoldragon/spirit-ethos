@@ -9,9 +9,13 @@
     core-logos.url = "github:LiGoldragon/core-logos/c7bd55bb29f7c0e10212571d2b4a2f69aae4b35b";
     rust-logos.url = "github:LiGoldragon/rust-logos/f3e4b7846ed032bc644f9a5b10a4ca8f3fb4c593";
     language-engine-witness.url = "github:LiGoldragon/language-engine-witness/efe8ed3d5ea53f280b93cc1f2f131d92ef781832";
+    signal-spirit-source = {
+      url = "github:LiGoldragon/signal-spirit/b8107601cd47ded10ea897828f8e5650d3949209";
+      flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, flake-utils, ... }:
+  outputs = { self, nixpkgs, flake-utils, signal-spirit-source, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
@@ -21,6 +25,8 @@
           ${pkgs.gnugrep}/bin/grep -Fx 'Nexus.1' ${./nexus.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx 'Sema.1' ${./sema.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx 'Entry.{Domains Kind Description Importance}' ${./interface.ethos}
+          ${pkgs.gnugrep}/bin/grep -Fx '    Magnitude.[Zero Minimum VeryLow Low Medium High VeryHigh Maximum]' ${./interface.ethos}
+          ${pkgs.gnugrep}/bin/grep -Fx '  Magnitude [Zero Minimum VeryLow Low Medium High VeryHigh Maximum]' ${signal-spirit-source}/schema/signal.schema
           ${pkgs.gnugrep}/bin/grep -Fx 'Observer.Stream.(Query IntentEvent)' ${./interface.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx 'DomainMatch.[Any Partial.DomainScopes Full.DomainScopes]' ${./interface.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx 'KeywordMatch.[Any AnyKeyword.Keywords AllKeywords.Keywords]' ${./interface.ethos}

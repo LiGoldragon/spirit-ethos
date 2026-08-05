@@ -8,7 +8,9 @@ schemas were consulted only as behavioral evidence.
 The Ethos header is `.1`, the currently supported Ethos file-format and grammar
 version. It is deliberately separate from the active Spirit v14 storage and
 wire model. `Entry` has exactly `Domains`, `Kind`, `Description`, and
-`Importance`; record identity is stable. Ordinary reads are
+`Importance`; record identity is stable. `Magnitude` preserves its complete
+v14 ordering: `Zero`, `Minimum`, `VeryLow`, `Low`, `Medium`, `High`,
+`VeryHigh`, and `Maximum`. Ordinary reads are
 `Observe`, `Lookup`, `LookupStash`, `Count`, `Marker`, and `Version`.
 `Query` retains its five independent dimensions: `DomainMatch`, `KeywordMatch`,
 `TextMatch`, `SelectedKind`, and `ImportanceSelection`.  The v14 cut removes
