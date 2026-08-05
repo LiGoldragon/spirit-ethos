@@ -4,18 +4,14 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/35d3407a3816f3b341d8cf1d60abaf2b7b8166ac";
     flake-utils.url = "github:numtide/flake-utils/11707dc2f618dd54ca8739b309ec4fc024de578b";
-    core-ethos.url = "github:LiGoldragon/core-ethos/29237c33798db908bbfe10ef0cffe2c6a28be508";
-    core-nomos.url = "github:LiGoldragon/core-nomos/47ad2e576e00688e0c2615209c943171252289f0";
-    core-logos.url = "github:LiGoldragon/core-logos/5733b586c72a3191e12b3e09cf01a4a6caba4242";
-    rust-logos.url = "github:LiGoldragon/rust-logos/9b2a6ef7a14a7df77e8c7f165226169c85c79ccd";
+    core-ethos.url = "github:LiGoldragon/core-ethos/e0abb0a369ecfd146e406a99ed8db75327a564d2";
+    core-nomos.url = "github:LiGoldragon/core-nomos/5b5e24dddaf548ed98f3a2bf2475b9bcabf15c6e";
+    core-logos.url = "github:LiGoldragon/core-logos/80e4ab18856f388a347320955eac365cfa766ce3";
+    rust-logos.url = "github:LiGoldragon/rust-logos/7df0c3416b45bb1c459ed561e644f84b402f2415";
     language-engine-witness.url = "github:LiGoldragon/language-engine-witness/2c06f0e2ec324c208919b3216b65766eca9656da";
-    signal-spirit-source = {
-      url = "github:LiGoldragon/signal-spirit/b8107601cd47ded10ea897828f8e5650d3949209";
-      flake = false;
-    };
   };
 
-  outputs = { self, nixpkgs, flake-utils, signal-spirit-source, ... }:
+  outputs = { self, nixpkgs, flake-utils, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
@@ -31,13 +27,6 @@
           ${pkgs.gnugrep}/bin/grep -Fx '    Importance.Magnitude' ${./interface.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx '    Magnitude.[Zero Minimum VeryLow Low Medium High VeryHigh Maximum]' ${./interface.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx '    Kind.[Decision Principle Correction Clarification Constraint]' ${./interface.ethos}
-          ${pkgs.gnugrep}/bin/grep -Fx '  Magnitude [Zero Minimum VeryLow Low Medium High VeryHigh Maximum]' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  Domains (Vector Domain)' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  Description String' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  RecordIdentifier String' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  Importance Magnitude' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  Kind [Decision Principle Correction Clarification Constraint]' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  Entry { Domains Kind Description Importance }' ${signal-spirit-source}/schema/signal.schema
           ${pkgs.gnugrep}/bin/grep -Fx '    Observer.Stream.(Query IntentEvent)' ${./interface.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx '    DomainMatch.[Any Partial.DomainScopes Full.DomainScopes]' ${./interface.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx '    KeywordMatch.[Any AnyKeyword.Keywords AllKeywords.Keywords]' ${./interface.ethos}
@@ -45,23 +34,6 @@
           ${pkgs.gnugrep}/bin/grep -Fx '    SelectedKind.Optional<Kind>' ${./interface.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx '    ImportanceSelection.[Any ExactImportance.Importance AtMostImportance.Importance AtLeastImportance.Importance]' ${./interface.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx '    Query.{DomainMatch KeywordMatch TextMatch SelectedKind ImportanceSelection}' ${./interface.ethos}
-          ${pkgs.gnugrep}/bin/grep -Fx '  DomainMatch [Any (Partial) (Full)]' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  Partial DomainScopes' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  Full DomainScopes' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  Keyword String' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  Keywords (Vector Keyword)' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  KeywordMatch [Any (AnyKeyword) (AllKeywords)]' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  AnyKeyword Keywords' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  AllKeywords Keywords' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  SearchText String' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  TextMatch [Any (ContainsText)]' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  ContainsText SearchText' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  SelectedKind (Optional Kind)' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  ImportanceSelection [Any (ExactImportance) (AtMostImportance) (AtLeastImportance)]' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  ExactImportance Importance' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  AtMostImportance Importance' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  AtLeastImportance Importance' ${signal-spirit-source}/schema/signal.schema
-          ${pkgs.gnugrep}/bin/grep -Fx '  Query { DomainMatch KeywordMatch TextMatch SelectedKind ImportanceSelection }' ${signal-spirit-source}/schema/signal.schema
           ${pkgs.gnugrep}/bin/grep -Fx '    StoredRecord.{RecordIdentifier Entry}' ${./sema.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx '    Migration.{SourceSchemaVersion MigratedRecordCount}' ${./sema.ethos}
           ${pkgs.gawk}/bin/awk '
