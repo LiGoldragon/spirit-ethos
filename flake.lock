@@ -28,17 +28,17 @@
         "rust-build": "rust-build_2"
       },
       "locked": {
-        "lastModified": 1785885125,
-        "narHash": "sha256-b6/8Dl5yV/PmlJSJel5RIbM2XEdA0lk1ivEAESOoZBk=",
+        "lastModified": 1785924840,
+        "narHash": "sha256-n3uuI9UTgA/tgu268b71OCxHlT2M0kcGhrxg8BnD4Gs=",
         "owner": "LiGoldragon",
         "repo": "core-logos",
-        "rev": "c7bd55bb29f7c0e10212571d2b4a2f69aae4b35b",
+        "rev": "5733b586c72a3191e12b3e09cf01a4a6caba4242",
         "type": "github"
       },
       "original": {
         "owner": "LiGoldragon",
         "repo": "core-logos",
-        "rev": "c7bd55bb29f7c0e10212571d2b4a2f69aae4b35b",
+        "rev": "5733b586c72a3191e12b3e09cf01a4a6caba4242",
         "type": "github"
       }
     },
@@ -49,17 +49,17 @@
         "rust-build": "rust-build_3"
       },
       "locked": {
-        "lastModified": 1785921524,
-        "narHash": "sha256-05JACKSU6VD2su+Mmy8se5paoSdHQGig005owTEAStA=",
+        "lastModified": 1785925463,
+        "narHash": "sha256-w8WShzJzMG8fEDh2K+Jlmjo88/4r1FPml/5eRJ/TezI=",
         "owner": "LiGoldragon",
         "repo": "core-nomos",
-        "rev": "96b156c5f578f82e07c1640e15ef04338a00b65e",
+        "rev": "47ad2e576e00688e0c2615209c943171252289f0",
         "type": "github"
       },
       "original": {
         "owner": "LiGoldragon",
         "repo": "core-nomos",
-        "rev": "96b156c5f578f82e07c1640e15ef04338a00b65e",
+        "rev": "47ad2e576e00688e0c2615209c943171252289f0",
         "type": "github"
       }
     },
@@ -844,17 +844,17 @@
         "rust-build": "rust-build_5"
       },
       "locked": {
-        "lastModified": 1785885856,
-        "narHash": "sha256-Kze75wHw3c9nzr+bcz6NDzGidZxysvtPiH/Rc80C7u8=",
+        "lastModified": 1785925028,
+        "narHash": "sha256-L07057jYcTS0in+ahRG3qqYEAPdTkEDn0gsBhbtC2yI=",
         "owner": "LiGoldragon",
         "repo": "rust-logos",
-        "rev": "f3e4b7846ed032bc644f9a5b10a4ca8f3fb4c593",
+        "rev": "9b2a6ef7a14a7df77e8c7f165226169c85c79ccd",
         "type": "github"
       },
       "original": {
         "owner": "LiGoldragon",
         "repo": "rust-logos",
-        "rev": "f3e4b7846ed032bc644f9a5b10a4ca8f3fb4c593",
+        "rev": "9b2a6ef7a14a7df77e8c7f165226169c85c79ccd",
         "type": "github"
       }
     },

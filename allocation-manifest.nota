@@ -161,3 +161,29 @@ rust VariantRecord 7
 rust enum 8
 rust pub 9
 rust struct 10
+
+SpiritV14SemaProvenance.1
+
+source https://github.com/LiGoldragon/spirit
+source-revision 7405eee89e3b1b5b6764eb1a50cbdf467b93c9a7
+store-schema 14
+
+family records
+semantic-table records 142
+record-archive-type StoredRecord 126
+key-archive-type RecordIdentifier 109
+physical-table records
+physical-family RecordsFamily
+physical-schema-hash a9a71bcb719e0c71595dc3a686d02228b226cb8b9bd16c650cb7b4e90654e6b1
+record-layout-fingerprint b998bbd0ea3f77991a0738d9a1f03badfd634acb1394c9c3ea6f992bf8605ec0
+key-layout-fingerprint 47e7eee04b138005b0a1f071453d483e43624da3f42385a1419548ae712122bc
+
+family migrations
+semantic-table migrations 141
+record-archive-type Migration 84
+key-archive-type SourceSchemaVersion 121
+physical-table migrations
+physical-family MigrationsFamily
+physical-schema-hash e6fd9ad857e30d8d5210cb6caa8f45578fbfea195aa84bb6ee8600e59e18148f
+record-layout-fingerprint f311abde4ff366fd856a5db54c1a0bcca1bc5a30e0573166df271669592b907a
+key-layout-fingerprint 677439d6bfd29aaca57a9a1c71b1124d01b124610f25b6e33e31995014b02bc8

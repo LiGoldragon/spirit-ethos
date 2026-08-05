@@ -49,6 +49,14 @@ published v14 assembly evidence in `language-engine-witness` revision
 exact `signal-domain` revision recorded in the configuration.  A type without
 a storage leaf carries a Rust path only, never an invented fingerprint.
 
+`records` and `migrations` are the sole exception to fresh physical table
+names. `allocation-manifest.nota` seals their current Spirit-v14 source
+revision, store schema, table/family names, schema hashes, semantic identities,
+and complete record/key layout fingerprints. Core Nomos accepts those two
+catalogued descriptors only after the language witness proves bidirectional
+archive compatibility and frozen-v14 store reopen behavior; this is neither a
+migration nor a fallback descriptor path.
+
 This evidence is append-only.  Changing an identity, receipt, allocation set,
 or external storage contract requires a new explicit allocation decision; it
 is not an ordinary source edit.
@@ -56,8 +64,8 @@ is not an ordinary source edit.
 ## Deferred integration proof
 
 The new Sema declaration gives records their stable `RecordIdentifier` key and
-migrations their source-schema-version key.  Whether generated Sema family
-identities can open an existing v14 store is intentionally not asserted here.
+migrations their source-schema-version key. The corresponding physical families
+are preserved only through the sealed current-v14 adoption proof above.
 That is a required integration proof once generated code exists.  If the
 families prove incompatible, the resulting fresh-store projection, rollback,
 and migration authority need an explicit decision; this source project does

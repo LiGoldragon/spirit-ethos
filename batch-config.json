@@ -140,6 +140,32 @@
       "path": ["crate", "generated_interface", "z2VKoA"]
     }
   ],
+  "preserved_sema_families": [
+    {
+      "table": "records",
+      "record_archive_type": "StoredRecord",
+      "key_archive_type": "RecordIdentifier",
+      "physical_table_name": "records",
+      "physical_family_name": "RecordsFamily",
+      "physical_schema_hash": "a9a71bcb719e0c71595dc3a686d02228b226cb8b9bd16c650cb7b4e90654e6b1",
+      "source_spirit_revision": "7405eee89e3b1b5b6764eb1a50cbdf467b93c9a7",
+      "store_schema": 14,
+      "record_layout_fingerprint": "b998bbd0ea3f77991a0738d9a1f03badfd634acb1394c9c3ea6f992bf8605ec0",
+      "key_layout_fingerprint": "47e7eee04b138005b0a1f071453d483e43624da3f42385a1419548ae712122bc"
+    },
+    {
+      "table": "migrations",
+      "record_archive_type": "Migration",
+      "key_archive_type": "SourceSchemaVersion",
+      "physical_table_name": "migrations",
+      "physical_family_name": "MigrationsFamily",
+      "physical_schema_hash": "e6fd9ad857e30d8d5210cb6caa8f45578fbfea195aa84bb6ee8600e59e18148f",
+      "source_spirit_revision": "7405eee89e3b1b5b6764eb1a50cbdf467b93c9a7",
+      "store_schema": 14,
+      "record_layout_fingerprint": "f311abde4ff366fd856a5db54c1a0bcca1bc5a30e0573166df271669592b907a",
+      "key_layout_fingerprint": "677439d6bfd29aaca57a9a1c71b1124d01b124610f25b6e33e31995014b02bc8"
+    }
+  ],
   "stream_lifecycles": [
     {
       "stream": "Observer",

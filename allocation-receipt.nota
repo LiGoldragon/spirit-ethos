@@ -32,3 +32,16 @@ The batch configuration copies those identities mechanically and the Nix gate
 refuses differences, duplicates, incomplete name coverage, or reordered
 translator output.  Any identity or receipt change requires a new explicit
 allocation decision; it is not a formatting update.
+
+SpiritV14SemaProvenance.1
+
+The current-v14 physical family descriptors are preserved only after the
+separate language-engine witness proves bidirectional record/key archive
+compatibility and a frozen-v14 open/write/reopen cycle.  This receipt records
+the immutable source revision and store schema that the strict Nomos catalogue
+accepts; it is not a migration, fallback, decoder, or generic hash override.
+
+source https://github.com/LiGoldragon/spirit
+source-revision 7405eee89e3b1b5b6764eb1a50cbdf467b93c9a7
+store-schema 14
+families records RecordsFamily migrations MigrationsFamily

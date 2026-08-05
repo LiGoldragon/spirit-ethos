@@ -5,9 +5,9 @@
     nixpkgs.url = "github:NixOS/nixpkgs/35d3407a3816f3b341d8cf1d60abaf2b7b8166ac";
     flake-utils.url = "github:numtide/flake-utils/11707dc2f618dd54ca8739b309ec4fc024de578b";
     core-ethos.url = "github:LiGoldragon/core-ethos/29237c33798db908bbfe10ef0cffe2c6a28be508";
-    core-nomos.url = "github:LiGoldragon/core-nomos/96b156c5f578f82e07c1640e15ef04338a00b65e";
-    core-logos.url = "github:LiGoldragon/core-logos/c7bd55bb29f7c0e10212571d2b4a2f69aae4b35b";
-    rust-logos.url = "github:LiGoldragon/rust-logos/f3e4b7846ed032bc644f9a5b10a4ca8f3fb4c593";
+    core-nomos.url = "github:LiGoldragon/core-nomos/47ad2e576e00688e0c2615209c943171252289f0";
+    core-logos.url = "github:LiGoldragon/core-logos/5733b586c72a3191e12b3e09cf01a4a6caba4242";
+    rust-logos.url = "github:LiGoldragon/rust-logos/9b2a6ef7a14a7df77e8c7f165226169c85c79ccd";
     language-engine-witness.url = "github:LiGoldragon/language-engine-witness/efe8ed3d5ea53f280b93cc1f2f131d92ef781832";
     signal-spirit-source = {
       url = "github:LiGoldragon/signal-spirit/b8107601cd47ded10ea897828f8e5650d3949209";
@@ -100,6 +100,31 @@
           ${pkgs.gnugrep}/bin/grep -Fx 'database-marker commit-sequence=3 snapshot=3' ${./allocation-receipt.nota}
           ${pkgs.gnugrep}/bin/grep -Fx 'rust struct 10' ${./allocation-manifest.nota}
           ${pkgs.gnugrep}/bin/grep -Fx 'rust enum 8' ${./allocation-manifest.nota}
+          ${pkgs.gnugrep}/bin/grep -Fx 'source-revision 7405eee89e3b1b5b6764eb1a50cbdf467b93c9a7' ${./allocation-manifest.nota}
+          ${pkgs.gnugrep}/bin/grep -Fx 'store-schema 14' ${./allocation-manifest.nota}
+          ${pkgs.gnugrep}/bin/grep -Fx 'physical-schema-hash a9a71bcb719e0c71595dc3a686d02228b226cb8b9bd16c650cb7b4e90654e6b1' ${./allocation-manifest.nota}
+          ${pkgs.gnugrep}/bin/grep -Fx 'physical-schema-hash e6fd9ad857e30d8d5210cb6caa8f45578fbfea195aa84bb6ee8600e59e18148f' ${./allocation-manifest.nota}
+          test "$(${pkgs.jq}/bin/jq '.preserved_sema_families | length' ${./batch-config.json})" = 2
+          ${pkgs.jq}/bin/jq -e '
+            .preserved_sema_families == [
+              {
+                table: "records", record_archive_type: "StoredRecord", key_archive_type: "RecordIdentifier",
+                physical_table_name: "records", physical_family_name: "RecordsFamily",
+                physical_schema_hash: "a9a71bcb719e0c71595dc3a686d02228b226cb8b9bd16c650cb7b4e90654e6b1",
+                source_spirit_revision: "7405eee89e3b1b5b6764eb1a50cbdf467b93c9a7", store_schema: 14,
+                record_layout_fingerprint: "b998bbd0ea3f77991a0738d9a1f03badfd634acb1394c9c3ea6f992bf8605ec0",
+                key_layout_fingerprint: "47e7eee04b138005b0a1f071453d483e43624da3f42385a1419548ae712122bc"
+              },
+              {
+                table: "migrations", record_archive_type: "Migration", key_archive_type: "SourceSchemaVersion",
+                physical_table_name: "migrations", physical_family_name: "MigrationsFamily",
+                physical_schema_hash: "e6fd9ad857e30d8d5210cb6caa8f45578fbfea195aa84bb6ee8600e59e18148f",
+                source_spirit_revision: "7405eee89e3b1b5b6764eb1a50cbdf467b93c9a7", store_schema: 14,
+                record_layout_fingerprint: "f311abde4ff366fd856a5db54c1a0bcca1bc5a30e0573166df271669592b907a",
+                key_layout_fingerprint: "677439d6bfd29aaca57a9a1c71b1124d01b124610f25b6e33e31995014b02bc8"
+              }
+            ]
+          ' ${./batch-config.json} > /dev/null
           mkdir -p $out
         '';
       });
