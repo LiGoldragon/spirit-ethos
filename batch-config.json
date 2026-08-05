@@ -95,8 +95,29 @@
       "path": ["signal_domain", "Domain"],
       "external_storage": {
         "source": "https://github.com/LiGoldragon/signal-domain",
-        "revision": "c24059de43614e6fb2128e47f959dc11748bd7e7",
-        "fingerprint": "f671462eee55f82ead6feaece69b91e1c7a8bbccf13cd9e94a4a0a6c12d65b15"
+        "revision": "fbc400bf5ed5e4c4d27ef4e76cb48fa4e5d53658",
+        "fingerprint": "f671462eee55f82ead6feaece69b91e1c7a8bbccf13cd9e94a4a0a6c12d65b15",
+        "successor": {
+          "physical_owner": {
+            "source": "https://github.com/LiGoldragon/signal-domain",
+            "revision": "c24059de43614e6fb2128e47f959dc11748bd7e7"
+          },
+          "compiled_owner": {
+            "source": "https://github.com/LiGoldragon/signal-domain",
+            "revision": "fbc400bf5ed5e4c4d27ef4e76cb48fa4e5d53658"
+          },
+          "type_identities": ["Domain", "DomainScopes"],
+          "proof_digest": "ef4533d3243698920fd79a4c099485eb9bc61aa05933a02b94724a288e3832fb",
+          "evidence_revision": "64a67c5b2465560e1b6db214d0c66d2258116856",
+          "archive_abi": {
+            "layout": true,
+            "variant_order": true,
+            "discriminants": true,
+            "size": true,
+            "alignment": true,
+            "archive_bytes": true
+          }
+        }
       }
     },
     {

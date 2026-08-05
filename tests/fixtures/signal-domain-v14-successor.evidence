@@ -1,0 +1,23 @@
+SpiritSignalDomainV14SuccessorEvidence.1
+physical-source https://github.com/LiGoldragon/signal-domain
+physical-revision c24059de43614e6fb2128e47f959dc11748bd7e7
+physical-schema-source-sha256 a29272a0d909a4bb4a6288e8aac265cae9e0485a90f14fc71f5f4b932669fe8e
+compiled-source https://github.com/LiGoldragon/signal-domain
+compiled-revision fbc400bf5ed5e4c4d27ef4e76cb48fa4e5d53658
+compiled-schema-source-sha256 a7c2479449832c29aed8eae0c7fb20fa3393e531d762a9b9ececafc8b8b02f51
+transitive-generated-type-count 82
+transitive-generated-type-set-sha256 49befecc0cba43444f84ac8db4e09b15ba39e8d8323e2d2966c3919f279be086
+rkyv-lock-stanza-sha256 a3433c17f9d14cc9e07ff5cdae0960a02efe6bb4ecbe0a4ff282829e1d537227
+type-identity Domain
+type-identity DomainScopes
+physical-declared-storage-type Domain
+physical-declared-query-type DomainScopes
+archive-abi-layout exact-generated-source
+archive-abi-variant-order exact-generated-source
+archive-abi-discriminants exact-generated-source
+archive-abi-size exact-generated-source-and-rkyv-lock
+archive-abi-alignment exact-generated-source-and-rkyv-lock
+archive-abi-bytes exact-generated-source-and-rkyv-lock
+one-crate-universe signal-domain=fbc400bf5ed5e4c4d27ef4e76cb48fa4e5d53658
+evidence-revision 64a67c5b2465560e1b6db214d0c66d2258116856
+proof-digest ef4533d3243698920fd79a4c099485eb9bc61aa05933a02b94724a288e3832fb

@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/35d3407a3816f3b341d8cf1d60abaf2b7b8166ac";
     flake-utils.url = "github:numtide/flake-utils/11707dc2f618dd54ca8739b309ec4fc024de578b";
     core-ethos.url = "github:LiGoldragon/core-ethos/e0abb0a369ecfd146e406a99ed8db75327a564d2";
-    core-nomos.url = "github:LiGoldragon/core-nomos/5b5e24dddaf548ed98f3a2bf2475b9bcabf15c6e";
+    core-nomos.url = "github:LiGoldragon/core-nomos/191e6abb39855e46bbd8a6d33b17707788de6e73";
     core-logos.url = "github:LiGoldragon/core-logos/80e4ab18856f388a347320955eac365cfa766ce3";
     rust-logos.url = "github:LiGoldragon/rust-logos/7df0c3416b45bb1c459ed561e644f84b402f2415";
     language-engine-witness.url = "github:LiGoldragon/language-engine-witness/2c06f0e2ec324c208919b3216b65766eca9656da";
@@ -28,6 +28,10 @@
           ${pkgs.gnugrep}/bin/grep -Fx '    Magnitude.[Zero Minimum VeryLow Low Medium High VeryHigh Maximum]' ${./interface.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx '    Kind.[Decision Principle Correction Clarification Constraint]' ${./interface.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx '    Observer.Stream.(Query IntentEvent)' ${./interface.ethos}
+          ${pkgs.gnugrep}/bin/grep -Fx 'SpiritSignalDomainV14SuccessorEvidence.1' ${./tests/fixtures/signal-domain-v14-successor.evidence}
+          ${pkgs.gnugrep}/bin/grep -Fx 'physical-revision c24059de43614e6fb2128e47f959dc11748bd7e7' ${./tests/fixtures/signal-domain-v14-successor.evidence}
+          ${pkgs.gnugrep}/bin/grep -Fx 'compiled-revision fbc400bf5ed5e4c4d27ef4e76cb48fa4e5d53658' ${./tests/fixtures/signal-domain-v14-successor.evidence}
+          ${pkgs.gnugrep}/bin/grep -Fx 'proof-digest ef4533d3243698920fd79a4c099485eb9bc61aa05933a02b94724a288e3832fb' ${./tests/fixtures/signal-domain-v14-successor.evidence}
           ${pkgs.gnugrep}/bin/grep -Fx '    DomainMatch.[Any Partial.DomainScopes Full.DomainScopes]' ${./interface.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx '    KeywordMatch.[Any AnyKeyword.Keywords AllKeywords.Keywords]' ${./interface.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx '    TextMatch.[Any ContainsText.SearchText]' ${./interface.ethos}
@@ -60,6 +64,36 @@
             and (.rust_grammar.enumeration_item == [3])
             and (.rust_grammar.struct_keyword == [10])
             and (.rust_grammar.enum_keyword == [8])
+          ' ${./batch-config.json} > /dev/null
+          ${pkgs.jq}/bin/jq -e '
+            [.rust_types[] | select(.spelling == "Domain") | .external_storage] == [
+              {
+                source: "https://github.com/LiGoldragon/signal-domain",
+                revision: "fbc400bf5ed5e4c4d27ef4e76cb48fa4e5d53658",
+                fingerprint: "f671462eee55f82ead6feaece69b91e1c7a8bbccf13cd9e94a4a0a6c12d65b15",
+                successor: {
+                  physical_owner: {
+                    source: "https://github.com/LiGoldragon/signal-domain",
+                    revision: "c24059de43614e6fb2128e47f959dc11748bd7e7"
+                  },
+                  compiled_owner: {
+                    source: "https://github.com/LiGoldragon/signal-domain",
+                    revision: "fbc400bf5ed5e4c4d27ef4e76cb48fa4e5d53658"
+                  },
+                  type_identities: ["Domain", "DomainScopes"],
+                  proof_digest: "ef4533d3243698920fd79a4c099485eb9bc61aa05933a02b94724a288e3832fb",
+                  evidence_revision: "64a67c5b2465560e1b6db214d0c66d2258116856",
+                  archive_abi: {
+                    layout: true,
+                    variant_order: true,
+                    discriminants: true,
+                    size: true,
+                    alignment: true,
+                    archive_bytes: true
+                  }
+                }
+              }
+            ]
           ' ${./batch-config.json} > /dev/null
           ! ${pkgs.gnugrep}/bin/grep -E '"chain": \[(1000|1001|1002|1003|1004|1005|1006|1007|1008|1009)' ${./batch-config.json}
           ${pkgs.gawk}/bin/awk '$1 == "universal" || $1 == "universal-reference" { print $2 " " $3 }' ${./allocation-manifest.nota} > manifest-names
