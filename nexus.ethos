@@ -1,0 +1,15 @@
+Nexus.14
+[interface.{Entry RecordSet RecordRequest GuardianReason Query IntentEvent}]
+{
+  [
+    AdmissionDecision.[Accepted Rejected.GuardianReason]
+    GuardianDecision.[Admit Refuse.GuardianReason]
+    LifecycleDecision.[Persist Emit]
+  ]
+  [
+    SignalAdmission
+    AgentGuardian
+    RecordStore
+    IntentObserver
+  ]
+}

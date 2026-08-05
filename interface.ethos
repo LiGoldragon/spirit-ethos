@@ -1,0 +1,61 @@
+Interface.14
+[signal-domain.{Domain DomainScopes}]
+{
+  [
+    Record.RecordRequest
+    Observe.Query
+    Lookup.RecordIdentifier
+    LookupStash.StashHandle
+    Count.Query
+    Marker.Unit
+    Version.Unit
+    Observer.Stream.(Query IntentEvent)
+  ]
+  [
+    Recorded.RecordIdentifier
+    Observed.RecordSet
+    LookedUp.FoundRecord
+    Stashed.StashedObservation
+    Counted.RecordCount
+    Marked.DatabaseMarker
+    Versioned.VersionReport
+  ]
+  [
+    AdmissionRejected.{GuardianReason Explanation}
+    QueryRejected.{QueryRefusal Explanation}
+  ]
+  [
+    Unit.[Value]
+    Domains.Vector<Domain>
+    Description.String
+    Explanation.String
+    QuoteText.String
+    Reasoning.String
+    RecordIdentifier.String
+    RecordCount.Integer
+    StashHandle.Integer
+    CommitSequence.Integer
+    StateDigest.Integer
+    VersionText.String
+    Importance.Magnitude
+    Magnitude.[Minimum VeryLow Low Medium High VeryHigh Maximum]
+    Kind.[Decision Principle Correction Clarification Constraint]
+    DomainSelection.[All Domains.DomainScopes]
+    Query.{DomainSelection}
+    VerbatimQuote.{QuoteText}
+    Testimony.Vector<VerbatimQuote>
+    Justification.{Testimony Reasoning}
+    Entry.{Domains Kind Description Importance}
+    RecordRequest.{Entry Justification}
+    ObservedRecord.{RecordIdentifier Entry}
+    RecordSet.Vector<ObservedRecord>
+    FoundRecord.{RecordIdentifier Entry}
+    StashedObservation.{StashHandle RecordSet}
+    DatabaseMarker.{CommitSequence StateDigest}
+    VersionReport.{VersionText}
+    GuardianReason.[Duplicate Contradiction Matter InsufficientWarrant ImportanceUnsupported]
+    QueryRefusal.[InvalidDomainSelection]
+    IntentRecorded.{Entry RecordIdentifier}
+    IntentEvent.[IntentRecorded]
+  ]
+}

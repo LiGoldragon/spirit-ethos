@@ -1,0 +1,14 @@
+Sema.14
+[interface.{Entry RecordIdentifier}]
+{
+  [
+    StoredRecord.{RecordIdentifier Entry}
+    SourceSchemaVersion.Integer
+    MigratedRecordCount.Integer
+    Migration.{SourceSchemaVersion MigratedRecordCount}
+  ]
+  [
+    records.{StoredRecord RecordIdentifier}
+    migrations.{Migration SourceSchemaVersion}
+  ]
+}
