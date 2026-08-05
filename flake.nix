@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/35d3407a3816f3b341d8cf1d60abaf2b7b8166ac";
     flake-utils.url = "github:numtide/flake-utils/11707dc2f618dd54ca8739b309ec4fc024de578b";
     core-ethos.url = "github:LiGoldragon/core-ethos/29237c33798db908bbfe10ef0cffe2c6a28be508";
-    core-nomos.url = "github:LiGoldragon/core-nomos/1580cac092885bfea6a8cd68d4e04b3a99eaf87d";
+    core-nomos.url = "github:LiGoldragon/core-nomos/96b156c5f578f82e07c1640e15ef04338a00b65e";
     core-logos.url = "github:LiGoldragon/core-logos/c7bd55bb29f7c0e10212571d2b4a2f69aae4b35b";
     rust-logos.url = "github:LiGoldragon/rust-logos/f3e4b7846ed032bc644f9a5b10a4ca8f3fb4c593";
     language-engine-witness.url = "github:LiGoldragon/language-engine-witness/efe8ed3d5ea53f280b93cc1f2f131d92ef781832";
@@ -66,6 +66,35 @@
           ${pkgs.gnugrep}/bin/grep -Fx 'Migration.{SourceSchemaVersion MigratedRecordCount}' ${./sema.ethos}
           ! ${pkgs.gnugrep}/bin/grep -E 'Certainty|Privacy|Referent|Candidate|Name\.\(|\||Text' ${./interface.ethos} ${./nexus.ethos} ${./sema.ethos}
           ! ${pkgs.gnugrep}/bin/grep -E '^(Interface|Nexus|Sema)\.14$' ${./interface.ethos} ${./nexus.ethos} ${./sema.ethos}
+          mkdir -p $out
+        '';
+        checks.sealed-allocation = pkgs.runCommand "spirit-ethos-sealed-allocation" {
+          nativeBuildInputs = [ pkgs.gawk pkgs.coreutils pkgs.jq ];
+        } ''
+          ${pkgs.jq}/bin/jq -e '
+            (.names | length == 143)
+            and ([.names[].spelling] | unique | length == 143)
+            and ([.names[].chain[0]] | unique | length == 143)
+            and (all(.names[]; .root == "universal" and (.chain | length == 1) and .chain[0] >= 0 and .chain[0] <= 142))
+            and (.grammar.interface_document == [34])
+            and (.grammar.nexus_document == [40])
+            and (.grammar.sema_document == [42])
+            and (.rust_grammar.newtype_item == [4])
+            and (.rust_grammar.enumeration_item == [3])
+            and (.rust_grammar.struct_keyword == [10])
+            and (.rust_grammar.enum_keyword == [8])
+          ' ${./batch-config.json} > /dev/null
+          ! ${pkgs.gnugrep}/bin/grep -E '"chain": \[(1000|1001|1002|1003|1004|1005|1006|1007|1008|1009)' ${./batch-config.json}
+          ${pkgs.gawk}/bin/awk '$1 == "universal" || $1 == "universal-reference" { print $2 " " $3 }' ${./allocation-manifest.nota} > manifest-names
+          ${pkgs.jq}/bin/jq -r '.names[] | "\(.spelling) \(.chain[0])"' ${./batch-config.json} > configured-names
+          test "$(${pkgs.coreutils}/bin/wc -l < manifest-names)" = 143
+          ${pkgs.coreutils}/bin/cmp manifest-names configured-names
+          ${pkgs.gnugrep}/bin/grep -Fx 'request-digest 7240a488adad7438b41ae881436a631c29312431a66aef0a7bb1f21eff6b4535' ${./allocation-receipt.nota}
+          ${pkgs.gnugrep}/bin/grep -Fx 'database-marker commit-sequence=2 snapshot=2' ${./allocation-receipt.nota}
+          ${pkgs.gnugrep}/bin/grep -Fx 'request-digest 6003e269dc6fcffb1bfca21f0f81d436d60ed141af4fc668643c13f70c0727bc' ${./allocation-receipt.nota}
+          ${pkgs.gnugrep}/bin/grep -Fx 'database-marker commit-sequence=3 snapshot=3' ${./allocation-receipt.nota}
+          ${pkgs.gnugrep}/bin/grep -Fx 'rust struct 10' ${./allocation-manifest.nota}
+          ${pkgs.gnugrep}/bin/grep -Fx 'rust enum 8' ${./allocation-manifest.nota}
           mkdir -p $out
         '';
       });

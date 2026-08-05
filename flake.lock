@@ -49,17 +49,17 @@
         "rust-build": "rust-build_3"
       },
       "locked": {
-        "lastModified": 1785886610,
-        "narHash": "sha256-EVLzNPAM8PoOWsnNRL0hdv4AsKtn3G6KIeh+xE42jjM=",
+        "lastModified": 1785921524,
+        "narHash": "sha256-05JACKSU6VD2su+Mmy8se5paoSdHQGig005owTEAStA=",
         "owner": "LiGoldragon",
         "repo": "core-nomos",
-        "rev": "1580cac092885bfea6a8cd68d4e04b3a99eaf87d",
+        "rev": "96b156c5f578f82e07c1640e15ef04338a00b65e",
         "type": "github"
       },
       "original": {
         "owner": "LiGoldragon",
         "repo": "core-nomos",
-        "rev": "1580cac092885bfea6a8cd68d4e04b3a99eaf87d",
+        "rev": "96b156c5f578f82e07c1640e15ef04338a00b65e",
         "type": "github"
       }
     },

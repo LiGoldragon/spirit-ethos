@@ -9,7 +9,6 @@ Interface.1
     Count.Query
     Marker.Unit
     Version.Unit
-    Observer.Stream.(Query IntentEvent)
   ]
   [
     Recorded.RecordIdentifier
@@ -64,5 +63,6 @@ Interface.1
     QueryRefusal.[InvalidDomainSelection]
     IntentRecorded.{Entry RecordIdentifier}
     IntentEvent.[IntentRecorded]
+    Observer.Stream.(Query IntentEvent)
   ]
 }

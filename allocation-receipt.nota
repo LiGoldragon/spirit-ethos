@@ -1,0 +1,34 @@
+SpiritEthosAllocationReceipt.1
+
+The allocator ran against a newly created local store solely for this seal.
+That store was never a production authority and was discarded after the typed
+receipts below were captured.  The manifest is therefore immutable evidence,
+not an authority endpoint or an instruction to allocate again.
+
+translator sema-translator
+translator-revision 6df830ab1ec9f315a5b50e40ffc393b48ea3d412
+signal-translator-revision 51c02c4a7b6f67d9dad095f11986085d7d65785b
+name-table-revision 50cb4bb53ae2dc4f2516f6912be328ef98ae49f8
+rust-logos-revision f3e4b7846ed032bc644f9a5b10a4ca8f3fb4c593
+store-kind isolated-ephemeral
+principal 5353535353535353535353535353535353535353535353535353535353535353
+
+universal-seal
+request-digest 7240a488adad7438b41ae881436a631c29312431a66aef0a7bb1f21eff6b4535
+operation-key b43750af181ae406b5a7646a64757af923eeef551c91c423654c1f27bd537d77
+database-marker commit-sequence=2 snapshot=2
+references Integer=0 String=1
+declaration-count 141
+
+rust-vocabulary-release
+version 1
+request-digest 6003e269dc6fcffb1bfca21f0f81d436d60ed141af4fc668643c13f70c0727bc
+operation-key b8fe2637c11a888c18b92d87887d8906413102877aa5b04d2e331741ea2d7aa8
+database-marker commit-sequence=3 snapshot=3
+declaration-count 10
+
+The declaration lists and exact identities are in allocation-manifest.nota.
+The batch configuration copies those identities mechanically and the Nix gate
+refuses differences, duplicates, incomplete name coverage, or reordered
+translator output.  Any identity or receipt change requires a new explicit
+allocation decision; it is not a formatting update.
