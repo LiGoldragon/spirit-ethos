@@ -19,9 +19,15 @@
         checks.source-roots = pkgs.runCommand "spirit-ethos-source-roots" { } ''
           ${pkgs.gnugrep}/bin/grep -Fx 'Entry.{Domains Kind Description Importance}' ${./interface.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx 'Observer.Stream.(Query IntentEvent)' ${./interface.ethos}
+          ${pkgs.gnugrep}/bin/grep -Fx 'DomainMatch.[Any Partial.DomainScopes Full.DomainScopes]' ${./interface.ethos}
+          ${pkgs.gnugrep}/bin/grep -Fx 'KeywordMatch.[Any AnyKeyword.Keywords AllKeywords.Keywords]' ${./interface.ethos}
+          ${pkgs.gnugrep}/bin/grep -Fx 'TextMatch.[Any ContainsText.SearchText]' ${./interface.ethos}
+          ${pkgs.gnugrep}/bin/grep -Fx 'SelectedKind.Optional<Kind>' ${./interface.ethos}
+          ${pkgs.gnugrep}/bin/grep -Fx 'ImportanceSelection.[Any ExactImportance.Importance AtMostImportance.Importance AtLeastImportance.Importance]' ${./interface.ethos}
+          ${pkgs.gnugrep}/bin/grep -Fx 'Query.{DomainMatch KeywordMatch TextMatch SelectedKind ImportanceSelection}' ${./interface.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx 'StoredRecord.{RecordIdentifier Entry}' ${./sema.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx 'Migration.{SourceSchemaVersion MigratedRecordCount}' ${./sema.ethos}
-          ! ${pkgs.gnugrep}/bin/grep -E 'Name\.\(|\||Text' ${./interface.ethos} ${./nexus.ethos} ${./sema.ethos}
+          ! ${pkgs.gnugrep}/bin/grep -E 'Certainty|Privacy|Referent|Candidate|Name\.\(|\||Text' ${./interface.ethos} ${./nexus.ethos} ${./sema.ethos}
           mkdir -p $out
         '';
       });

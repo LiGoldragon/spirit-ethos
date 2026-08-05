@@ -40,8 +40,15 @@ Interface.14
     Importance.Magnitude
     Magnitude.[Minimum VeryLow Low Medium High VeryHigh Maximum]
     Kind.[Decision Principle Correction Clarification Constraint]
-    DomainSelection.[All Domains.DomainScopes]
-    Query.{DomainSelection}
+    DomainMatch.[Any Partial.DomainScopes Full.DomainScopes]
+    Keyword.String
+    Keywords.Vector<Keyword>
+    KeywordMatch.[Any AnyKeyword.Keywords AllKeywords.Keywords]
+    SearchText.String
+    TextMatch.[Any ContainsText.SearchText]
+    SelectedKind.Optional<Kind>
+    ImportanceSelection.[Any ExactImportance.Importance AtMostImportance.Importance AtLeastImportance.Importance]
+    Query.{DomainMatch KeywordMatch TextMatch SelectedKind ImportanceSelection}
     VerbatimQuote.{QuoteText}
     Testimony.Vector<VerbatimQuote>
     Justification.{Testimony Reasoning}

@@ -8,6 +8,10 @@ schemas were consulted only as behavioral evidence.
 The active contract is v14-only.  `Entry` has exactly `Domains`, `Kind`,
 `Description`, and `Importance`; record identity is stable.  Ordinary reads are
 `Observe`, `Lookup`, `LookupStash`, `Count`, `Marker`, and `Version`.
+`Query` retains its five independent dimensions: `DomainMatch`, `KeywordMatch`,
+`TextMatch`, `SelectedKind`, and `ImportanceSelection`.  The v14 cut removes
+only the selectors ruled out of the active model; it does not reduce these
+ordinary read semantics.
 Admission and explicit lifecycle behavior remain Nexus responsibilities.  Sema
 persists records plus the one v13-to-v14 migration receipt; its active families
 are records and migrations.
@@ -20,6 +24,16 @@ termination input.  The provisional ownership and fields are documented in
 This repository contains authored source only.  Consumer repositories may
 check in generated Rust only when it is generated from an exact pushed revision
 of these roots, with freshness and provenance checks.
+
+## Deferred integration proof
+
+The new Sema declaration gives records their stable `RecordIdentifier` key and
+migrations their source-schema-version key.  Whether generated Sema family
+identities can open an existing v14 store is intentionally not asserted here.
+That is a required integration proof once generated code exists.  If the
+families prove incompatible, the resulting fresh-store projection, rollback,
+and migration authority need an explicit decision; this source project does
+not introduce a transition.
 
 ## Provenance
 
