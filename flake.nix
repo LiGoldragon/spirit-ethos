@@ -69,7 +69,7 @@
           mkdir -p $out
         '';
         checks.sealed-allocation = pkgs.runCommand "spirit-ethos-sealed-allocation" {
-          nativeBuildInputs = [ pkgs.gawk pkgs.coreutils pkgs.jq ];
+          nativeBuildInputs = [ pkgs.gawk pkgs.coreutils pkgs.diffutils pkgs.jq ];
         } ''
           ${pkgs.jq}/bin/jq -e '
             (.names | length == 143)
@@ -88,7 +88,7 @@
           ${pkgs.gawk}/bin/awk '$1 == "universal" || $1 == "universal-reference" { print $2 " " $3 }' ${./allocation-manifest.nota} > manifest-names
           ${pkgs.jq}/bin/jq -r '.names[] | "\(.spelling) \(.chain[0])"' ${./batch-config.json} > configured-names
           test "$(${pkgs.coreutils}/bin/wc -l < manifest-names)" = 143
-          ${pkgs.coreutils}/bin/cmp manifest-names configured-names
+          ${pkgs.diffutils}/bin/cmp manifest-names configured-names
           ${pkgs.gnugrep}/bin/grep -Fx 'request-digest 7240a488adad7438b41ae881436a631c29312431a66aef0a7bb1f21eff6b4535' ${./allocation-receipt.nota}
           ${pkgs.gnugrep}/bin/grep -Fx 'database-marker commit-sequence=2 snapshot=2' ${./allocation-receipt.nota}
           ${pkgs.gnugrep}/bin/grep -Fx 'request-digest 6003e269dc6fcffb1bfca21f0f81d436d60ed141af4fc668643c13f70c0727bc' ${./allocation-receipt.nota}
