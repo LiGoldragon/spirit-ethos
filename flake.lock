@@ -481,17 +481,17 @@
         "spirit-ethos": "spirit-ethos"
       },
       "locked": {
-        "lastModified": 1785927209,
-        "narHash": "sha256-K4s4gYumhVlWqVgPfIGvCUdO2Eof+Ti8ZgsuVZ0akjk=",
+        "lastModified": 1785930451,
+        "narHash": "sha256-knAhMeEBZgiXgKC4Ht+eG2E6TalsBbl61bRy7b0af6E=",
         "owner": "LiGoldragon",
         "repo": "language-engine-witness",
-        "rev": "79345db137183e7ed795a5bfbd7b730c3c5d0816",
+        "rev": "2c06f0e2ec324c208919b3216b65766eca9656da",
         "type": "github"
       },
       "original": {
         "owner": "LiGoldragon",
         "repo": "language-engine-witness",
-        "rev": "79345db137183e7ed795a5bfbd7b730c3c5d0816",
+        "rev": "2c06f0e2ec324c208919b3216b65766eca9656da",
         "type": "github"
       }
     },
@@ -607,17 +607,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1785925695,
-        "narHash": "sha256-IdEOmpxMSHBxb+Dj2Smq1XApiUi0oEgyKLsVXVT0ib8=",
+        "lastModified": 1785928707,
+        "narHash": "sha256-8ZpIY0pnINaert4mHgmU8gW9VFR6R7mn49z/ImGLkuc=",
         "owner": "LiGoldragon",
         "repo": "nomos-engine",
-        "rev": "7b43a53ffbf5175eddf2224780bd9c26ed845e20",
+        "rev": "c20a1a2af92d344ed2568a0d40b91c13ab6b51a3",
         "type": "github"
       },
       "original": {
         "owner": "LiGoldragon",
         "repo": "nomos-engine",
-        "rev": "7b43a53ffbf5175eddf2224780bd9c26ed845e20",
+        "rev": "c20a1a2af92d344ed2568a0d40b91c13ab6b51a3",
         "type": "github"
       }
     },

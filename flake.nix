@@ -8,7 +8,7 @@
     core-nomos.url = "github:LiGoldragon/core-nomos/47ad2e576e00688e0c2615209c943171252289f0";
     core-logos.url = "github:LiGoldragon/core-logos/5733b586c72a3191e12b3e09cf01a4a6caba4242";
     rust-logos.url = "github:LiGoldragon/rust-logos/9b2a6ef7a14a7df77e8c7f165226169c85c79ccd";
-    language-engine-witness.url = "github:LiGoldragon/language-engine-witness/79345db137183e7ed795a5bfbd7b730c3c5d0816";
+    language-engine-witness.url = "github:LiGoldragon/language-engine-witness/2c06f0e2ec324c208919b3216b65766eca9656da";
     signal-spirit-source = {
       url = "github:LiGoldragon/signal-spirit/b8107601cd47ded10ea897828f8e5650d3949209";
       flake = false;
