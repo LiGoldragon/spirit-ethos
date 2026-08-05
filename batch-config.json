@@ -78,6 +78,18 @@
       "path": ["Option"]
     },
     {
+      "spelling": "Input",
+      "path": ["interface_protos", "Input"]
+    },
+    {
+      "spelling": "Output",
+      "path": ["interface_protos", "Output"]
+    },
+    {
+      "spelling": "Refusal",
+      "path": ["interface_protos", "Refusal"]
+    },
+    {
       "spelling": "Domain",
       "import_source": "signal-domain",
       "path": ["signal_domain", "Domain"],
