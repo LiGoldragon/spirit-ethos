@@ -5,8 +5,10 @@ The three roots were written fresh for the four-field Spirit model in
 `design/Spirit/SpiritSurfaceRemoval-2026-08-03.md`; prior fixtures and runtime
 schemas were consulted only as behavioral evidence.
 
-The active contract is v14-only.  `Entry` has exactly `Domains`, `Kind`,
-`Description`, and `Importance`; record identity is stable.  Ordinary reads are
+The Ethos header is `.1`, the currently supported Ethos file-format and grammar
+version. It is deliberately separate from the active Spirit v14 storage and
+wire model. `Entry` has exactly `Domains`, `Kind`, `Description`, and
+`Importance`; record identity is stable. Ordinary reads are
 `Observe`, `Lookup`, `LookupStash`, `Count`, `Marker`, and `Version`.
 `Query` retains its five independent dimensions: `DomainMatch`, `KeywordMatch`,
 `TextMatch`, `SelectedKind`, and `ImportanceSelection`.  The v14 cut removes

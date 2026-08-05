@@ -17,6 +17,9 @@
         pkgs = import nixpkgs { inherit system; };
       in {
         checks.source-roots = pkgs.runCommand "spirit-ethos-source-roots" { } ''
+          ${pkgs.gnugrep}/bin/grep -Fx 'Interface.1' ${./interface.ethos}
+          ${pkgs.gnugrep}/bin/grep -Fx 'Nexus.1' ${./nexus.ethos}
+          ${pkgs.gnugrep}/bin/grep -Fx 'Sema.1' ${./sema.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx 'Entry.{Domains Kind Description Importance}' ${./interface.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx 'Observer.Stream.(Query IntentEvent)' ${./interface.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx 'DomainMatch.[Any Partial.DomainScopes Full.DomainScopes]' ${./interface.ethos}
@@ -28,6 +31,7 @@
           ${pkgs.gnugrep}/bin/grep -Fx 'StoredRecord.{RecordIdentifier Entry}' ${./sema.ethos}
           ${pkgs.gnugrep}/bin/grep -Fx 'Migration.{SourceSchemaVersion MigratedRecordCount}' ${./sema.ethos}
           ! ${pkgs.gnugrep}/bin/grep -E 'Certainty|Privacy|Referent|Candidate|Name\.\(|\||Text' ${./interface.ethos} ${./nexus.ethos} ${./sema.ethos}
+          ! ${pkgs.gnugrep}/bin/grep -E '^(Interface|Nexus|Sema)\.14$' ${./interface.ethos} ${./nexus.ethos} ${./sema.ethos}
           mkdir -p $out
         '';
       });
