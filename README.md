@@ -82,5 +82,5 @@ string forms.
 Run the reproducible source gate with:
 
 ```sh
-nix flake check --option eval-cache false --option substituters '' -L
+nix flake check --option eval-cache false -L
 ```
